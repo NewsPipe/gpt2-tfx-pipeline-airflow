@@ -1,20 +1,11 @@
 #!/bin/bash
 AIRFLOW_VERSION=1.10.12
 AIRFLOW_PORT=8080
-AIRFLOW_HOME=./airlfow
+AIRFLOW_HOME=/home/s0558366/gpt2-tfx-pipeline-airflow/airflow
 
-FILE=./AIRFLOW_HOME_EXIST
-if [ -f "$FILE" ]; then
-    echo "$FILE exists. Skipping setup AIRFLOW_HOME and libaries"
-    rm -rf ${AIRFLOW_HOME}
-else
-    # install python libs
-    pip install flask-bcrypt
-    pip install apache-airflow==${AIRFLOW_VERSION}
-
-    # create init file
-    touch ./AIRFLOW_HOME_EXIST
-fi
+# install python libs
+pip install flask-bcrypt
+pip install apache-airflow==${AIRFLOW_VERSION}
 
 # init db
 airflow initdb
@@ -39,7 +30,7 @@ airflow initdb
 python3 ./create_account.py
 
 # start server and scheduler
-rm -rf $AIRFLOW_HOME/airflow-webserver*
-rm -rf $AIRFLOW_HOME/airflow-scheduler*
+rm -rf ${AIRFLOW_HOME}/airflow-webserver*
+rm -rf ${AIRFLOW_HOME}/airflow-scheduler*
 airflow webserver -D -w 2 --host 0.0.0.0 --port ${AIRFLOW_PORT}
-airflow scheduler -D
+airflow scheduler
