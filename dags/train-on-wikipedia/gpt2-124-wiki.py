@@ -6,12 +6,12 @@ from tfx.orchestration.airflow.airflow_dag_runner import AirflowPipelineConfig
 
 from tfx_gpt2.templates.local_custom_language_pipeline import create_pipeline
 
-model_name = "345M"
+model_name = "124M"
 
 text_dir = "/home/s0558366/wikidump-extractor/wikidump"
-text_token_size = 5000  # https://github.com/rkfg/gpt-2/issues/4
+text_token_size = 50000  # https://github.com/rkfg/gpt-2/issues/4
 
-mlflow_tracking_url = "/home/s0558366/gpt2-tfx-pipeline-configurations/train-on-wikipedia/mlruns"
+mlflow_tracking_url = os.path.join(os.environ['AIRFLOW_HOME'], "mlruns")
 
 train_config = {'num_iterations': 10000,  # number of iterations
                 'batch_size': 1,  # Batch size
@@ -31,7 +31,7 @@ train_config = {'num_iterations': 10000,  # number of iterations
                 'save_every': 1000,  # Write a checkpoint every N steps
                 }
 
-output_dir = "/home/s0558366/gpt2-tfx-pipeline-configurations/train-on-wikipedia/output"
+output_dir = os.environ['AIRFLOW_HOME']
 
 pipeline = create_pipeline(pipeline_name=os.path.basename(__file__),
                            pipeline_root=output_dir,
