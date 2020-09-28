@@ -12,4 +12,4 @@ def create_account(name, password):
    session.close()
 
 
-create_account("admin", "admin")
+create_account("admin", "fasfg2312erqg344e2rt3rfewrdswa")
