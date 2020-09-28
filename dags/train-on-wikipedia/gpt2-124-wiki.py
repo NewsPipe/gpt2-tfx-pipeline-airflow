@@ -4,7 +4,7 @@ from datetime import datetime
 from tfx.orchestration.airflow.airflow_dag_runner import AirflowDagRunner
 from tfx.orchestration.airflow.airflow_dag_runner import AirflowPipelineConfig
 
-from tfx_gpt2.templates.local_custom_language_pipeline import create_pipeline
+from tfx_gpt2.templates.local_custom_language_large_data_pipeline import create_pipeline
 
 model_name = "124M"
 
