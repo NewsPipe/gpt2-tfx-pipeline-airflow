@@ -29,8 +29,3 @@ airflow initdb
 # create airflow account
 python3 ./create_account.py
 
-# start server and scheduler
-rm -rf ${AIRFLOW_HOME}/airflow-webserver*
-rm -rf ${AIRFLOW_HOME}/airflow-scheduler*
-airflow webserver -D -w 2 --host 0.0.0.0 --port ${AIRFLOW_PORT}
-airflow scheduler
