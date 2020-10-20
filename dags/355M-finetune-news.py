@@ -6,7 +6,7 @@ from tfx.orchestration.airflow.airflow_dag_runner import AirflowPipelineConfig
 
 from tfx_gpt2.templates.local_finetune_pipeline import create_pipeline
 
-model_name = "774M"
+model_name = "345M"
 
 text_dir = "/home/s0558366/news-data"
 text_token_size = 50000  # https://github.com/rkfg/gpt-2/issues/4
@@ -15,7 +15,7 @@ mlflow_tracking_url = os.path.join(os.environ['AIRFLOW_HOME'], "mlruns")
 
 train_config = {'num_iterations': 1000000,  # number of iterations
                 'batch_size': 1,  # Batch size
-                'learning_rate': 0.00002,  # Learning rate for Adam
+                'learning_rate': 0.000001,  # Learning rate for Adam
                 'accumulate_gradients': 1,  # Accumulate gradients across N minibatches.
                 'memory_saving_gradients': True,  # Use gradient checkpointing to reduce vram usage.
                 'only_train_transformer_layers': False,  # Restrict training to the transformer blocks.
@@ -25,7 +25,7 @@ train_config = {'num_iterations': 1000000,  # number of iterations
                 'top_k': 40,  # K for top-k sampling.
                 'top_p': 0.0,  # P for top-p sampling. Overrides top_k if set > 0.
 
-                'sample_every': 10000,  # Generate samples every N steps
+                'sample_every': 1000,  # Generate samples every N steps
                 'sample_length': 1023,  # Sample this many tokens
                 'sample_num': 5,  # Generate this many samples
                 'save_every': 10000,  # Write a checkpoint every N steps
