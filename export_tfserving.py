@@ -3,7 +3,6 @@ from datetime import datetime
 
 from tfx_gpt2.components.export_for_tfserving import export_for_serving
 
-text_token_size = 50000  # https://github.com/rkfg/gpt-2/issues/4
 
 train_config = {'num_iterations': 20000000,  # number of iterations
                 'batch_size': 1,  # Batch size
@@ -25,7 +24,7 @@ train_config = {'num_iterations': 20000000,  # number of iterations
 
 
 def main(checkpoint_dir, output_dir):
-    export_for_serving(checkpoint_dir, checkpoint_dir, output_dir)
+    export_for_serving(checkpoint_dir, checkpoint_dir, output_dir, train_config=train_config)
 
 
 if __name__ == '__main__':
