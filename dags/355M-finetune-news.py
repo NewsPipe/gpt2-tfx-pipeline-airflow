@@ -11,6 +11,8 @@ model_name = "345M"
 text_dir = "/home/s0558366/news-data"
 text_token_size = 50000  # https://github.com/rkfg/gpt-2/issues/4
 
+
+checkpoint_dir = "/home/s0558366/gpt2-355M-wiki-ckpt"
 mlflow_tracking_url = os.path.join(os.environ['AIRFLOW_HOME'], "mlruns")
 
 train_config = {'num_iterations': 1000000,  # number of iterations
@@ -40,7 +42,8 @@ pipeline = create_pipeline(pipeline_name=os.path.basename(__file__),
                            text_token_size=text_token_size,
                            mlflow_tracking_url=mlflow_tracking_url,
                            train_config=train_config,
-                           enable_cache=True)
+                           enable_cache=True,
+                           checkpoint_dir=checkpoint_dir)
 
 airflow_config = {'schedule_interval': "@once",  # every 30 minutes
                   'start_date': datetime(1998, 2, 23, 8),  # year, month, day, hour
