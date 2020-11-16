@@ -29,4 +29,4 @@ def main(checkpoint_dir, output_dir):
 
 
 if __name__ == '__main__':
-    fire.Fire(hello)
+    fire.Fire(main)

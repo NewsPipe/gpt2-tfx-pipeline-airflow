@@ -42,7 +42,7 @@ pipeline = create_pipeline(pipeline_name=os.path.basename(__file__),
                            text_token_size=text_token_size,
                            mlflow_tracking_url=mlflow_tracking_url,
                            train_config=train_config,
-                           enable_cache=True,
+                           enable_cache=False,
                            checkpoint_dir=checkpoint_dir)
 
 airflow_config = {'schedule_interval': "@once",  # every 30 minutes
