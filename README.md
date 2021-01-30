@@ -9,7 +9,7 @@ cd gpt2-tfx-pipeline
 pip install .
 ```
 
-Add to ~/.bashrc the AIRFLOW_HOME variable with the part to your airflow folder. In my case it was `/home/s0558366/gpt2-tfx-pipeline-airflow/airflow`
+Add to `~/.bashrc` the `AIRFLOW_HOME` variable with the part to your airflow folder. In my case it was `/home/s0558366/gpt2-tfx-pipeline-airflow/airflow`
 ```
 nano ~/.bashrc # and paste on top line below
 export AIRFLOW_HOME=/home/s0558366/gpt2-tfx-pipeline-airflow/airflow
