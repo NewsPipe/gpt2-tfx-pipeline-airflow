@@ -1,7 +1,7 @@
 #!/bin/bash
 AIRFLOW_VERSION=1.10.12
 AIRFLOW_PORT=8080
-AIRFLOW_HOME=${PWD}/airflow
+AIRFLOW_HOME=${AIRFLOW_HOME}
 
 # install python libs
 pip install flask-bcrypt
